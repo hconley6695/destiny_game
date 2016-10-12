@@ -3,3 +3,36 @@
 // Turn on freq used libraries
 // @import 'normalize-css/normalize';
 // @import 'font-awesome/scss/font-awesome';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+h3 {
+	font-size: 24px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+ul {
+	display: flex;
+	font-size: 14px;
+}
+
+button {
+	height: 75px;
+	width: 200px;
+	margin: 10px;
+	flex-direction: row;
+	&:hover {
+		background-color: #a80303;
+		color: white;
+	}
+}
+
+
+
+
