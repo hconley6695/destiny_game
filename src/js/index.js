@@ -8,7 +8,7 @@ function slide(scenario) {
 		return `<li><button data-next="${path.scenario}"> ${path.label} </button></li>`
 	});
 	
-	return `<h3> ${scenario.message}</h3>
+	return `<div><h3> ${scenario.message}</h3></div>
 			<ul>${buttons.join('')}</ul>`
 
 }
@@ -18,6 +18,7 @@ function loadScene(scenarioName) {
 	var eachSlide = slide(scenario);
 	$('.app').html(eachSlide);
 }
+
 
 loadScene('start_scenario');
 
