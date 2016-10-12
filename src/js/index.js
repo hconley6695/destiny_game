@@ -1,4 +1,8 @@
 // Javascript Entry Point
+
+//GAME IS DEPLOYED AT tiy-2016q1-charlesconley-destiny_game.surge.sh
+
+
 import $ from 'jquery';
 import scenarios from './scenarios';
 
