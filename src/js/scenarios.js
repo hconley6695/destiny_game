@@ -1,7 +1,7 @@
 
 
 var start_scenario = {
-	message: 'You are walking along the beach minding your own business when you find an old piece of paper.',
+	message: 'You are walking along the beach minding your own business when you find an old piece of paper. You open it and discover that it is a treasure map.',
 	paths: [
 		{label: 'Decide to look for treasure.', scenario: 'goTreasureHunting'},
 		{label: 'Throw it back in the ocean.', scenario: 'endGame'	}
