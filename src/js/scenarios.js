@@ -1,4 +1,15 @@
 
+// var welcome = {
+// 	message: 'Welcome to the best game in the world.  Do you want to play?',
+// 	paths: [
+// 		{label: 'Yes, I\'m so excited to play!', scenario: 'start_scenario'},
+// 		{label: 'No way, this is boring.', scenario: 'boring'}
+// 	]
+// };
+
+// var boring = {
+// 	message: 'You stink.  Go away if you don\'t want to play.'
+// };
 
 var start_scenario = {
 	message: 'You are walking along the beach minding your own business when you find an old piece of paper. You open it and discover that it is a treasure map.',
@@ -68,7 +79,9 @@ var rightTunnel = {
 };
 
 
-export default {
+var possibleScenes = [
+	// welcome,
+	// boring,
 	start_scenario,
 	endGame,
 	goTreasureHunting,
@@ -78,7 +91,9 @@ export default {
 	insideForest,
 	leftTunnel,
 	rightTunnel
-}
+]
+
+export default possibleScenes;
 
 
 
