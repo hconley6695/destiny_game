@@ -79,9 +79,7 @@ var rightTunnel = {
 };
 
 
-var possibleScenes = [
-	// welcome,
-	// boring,
+export default {
 	start_scenario,
 	endGame,
 	goTreasureHunting,
@@ -91,9 +89,10 @@ var possibleScenes = [
 	insideForest,
 	leftTunnel,
 	rightTunnel
-]
+}
 
-export default possibleScenes;
+
+
 
 
 

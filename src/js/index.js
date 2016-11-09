@@ -4,14 +4,16 @@
 
 
 import $ from 'jquery';
-import {possibleScenes} from './scenarios';
+import possibleScenes  from './scenarios';
 
 class Game {
 	constructor (possibleScenes) {
 		this.possibleScenes = possibleScenes;
 	}
 
-	scene(view) {
+
+	template(view) {
+		console.log(view);
 		var buttons = view.paths.map(path => {
 			return `<li><button data-next=${path.scenario}>${path.label}</button></li>`
 		});
@@ -22,14 +24,42 @@ class Game {
 		`
 	}
 
+	loadScene(sceneName) {
+		console.log(sceneName);
+		var buttons = sceneName.paths.map(path => {
+			return `<li><button data-next="${path.scenario}"> ${path.label}</button></li>`
+		});
+		console.log(buttons);
+
+		return `
+			<h3>${sceneName.message}</h3>
+			<ul>${sceneName.paths}</ul>
+		`
+
+	}
+
 	// start() {
-	// 	loadScene(possibleScenes[0]);
+	// 	console.log('hi');
+	// 	var allMsg = possibleScenes.message;
+	// 	console.log(allMsg);
+
+	// 	// var hello = possibleScenes.message.map(msg => {
+	// 	// 	return `<li> ${msg.message}</li>`
+	// 	// });
+
+	// 	// console.log(hello);
 	// }
 
 }
 
+// console.log(possibleScenes);
+
 var adventure = new Game(possibleScenes);
-adventure.scene();
+// console.log(adventure);
+// adventure.start();
+// adventure.template();
+adventure.loadScene();
+
 
 
 
