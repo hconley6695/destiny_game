@@ -9,17 +9,18 @@ import possibleScenes  from './scenarios';
 class Game {
 	constructor (possibleScenes) {
 		this.possibleScenes = possibleScenes;
+		// this.paths = [];
 	}
 
 
-	template(view) {
+	template(obj) {
 
-		var buttons = view.paths.map(path => {
-			return `<li><button data-next=${path.scenario}>${path.label}</button></li>`
+		var buttons = obj.paths.map(path => {
+			return `<li><button data-next=${obj.scenario}>${obj.label}</button></li>`
 		});
 
 		return `
-			<h3>${view.message}</h3>
+			<h3>${obj.message}</h3>
 			<ul>${buttons.join('')}</ul>
 		`
 	}
@@ -27,19 +28,25 @@ class Game {
 	loadScene(sceneName) {
 		console.log(sceneName);
 
+		var each = this.possibleScenes[sceneName];
+		console.log(each);
+		var view = this.template(each);
+		$('.app').html(view);
+
 	}
 
-	// start() {
-	// 	console.log('hi');
-	// 	var allMsg = possibleScenes.message;
-	// 	console.log(allMsg);
+	start() {
 
-	// 	// var hello = possibleScenes.message.map(msg => {
-	// 	// 	return `<li> ${msg.message}</li>`
-	// 	// });
+		this.loadScene('start_scenario');
 
-	// 	// console.log(hello);
-	// }
+		$('body').on('click', 'button', function(event){
+			var nextScene = $(event.target).data('next');
+			loadScene('nextScene');
+		})
+
+
+
+	}
 
 }
 
@@ -49,7 +56,8 @@ var adventure = new Game(possibleScenes);
 // console.log(adventure);
 // adventure.start();
 // adventure.template();
-adventure.loadScene();
+adventure.start('start_scenario');
+
 
 
 
