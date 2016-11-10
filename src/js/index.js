@@ -13,7 +13,7 @@ class Game {
 
 
 	template(view) {
-		console.log(view);
+
 		var buttons = view.paths.map(path => {
 			return `<li><button data-next=${path.scenario}>${path.label}</button></li>`
 		});
@@ -26,15 +26,6 @@ class Game {
 
 	loadScene(sceneName) {
 		console.log(sceneName);
-		var buttons = sceneName.paths.map(path => {
-			return `<li><button data-next="${path.scenario}"> ${path.label}</button></li>`
-		});
-		console.log(buttons);
-
-		return `
-			<h3>${sceneName.message}</h3>
-			<ul>${sceneName.paths}</ul>
-		`
 
 	}
 
