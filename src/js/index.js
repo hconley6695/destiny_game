@@ -6,31 +6,52 @@
 import $ from 'jquery';
 import scenarios from './scenarios';
 
-function slide(scenario) {
-	
-	var buttons = scenario.paths.map(path => {
-		return `<li><button data-next="${path.scenario}"> ${path.label} </button></li>`
-	});
-	
-	return `<div><h3> ${scenario.message}</h3></div>
-			<ul>${buttons.join('')}</ul>`
+class Game {
+  constructor(scenarios) {
+    this.scenarios = scenarios;
+    this.paths = [];
+  }
 
+  slide(scenario) {
+  	// console.log(scenario);
+
+    var buttons = scenario.paths.map(path => {
+      return `<li><button data-scenario="${path.scenario}">${path.label}</button></li>`;
+    })
+
+    return `
+      <h4>${scenario.message}</h4>
+      <ul>${buttons.join('')}<ul>
+    `
+  }
+
+  // pathsLengthSum() {
+  //   return this.paths.reduce((a, b) => a + b);
+  // }
+
+  loadScenario(scenarioName) {
+    // this.paths.push(scenarioName.length);
+    // console.log(this.paths, this.pathsLengthSum());
+    console.log(scenarioName);
+    var scenario = this.scenarios[scenarioName];
+    var scenarioSlide = this.slide(scenario);
+    $('.app').html(scenarioSlide);
+  }
+
+  start() {
+    this.loadScenario('start_scenario');
+
+    $('.app').on('click', 'button', (event) => {
+      var scenario = $(event.target).data('scenario');
+      this.loadScenario(scenario);
+    });
+  }
 }
 
-function loadScene(scenarioName) {
-	var scenario = scenarios[scenarioName];
-	var eachSlide = slide(scenario);
-	$('.app').html(eachSlide);
-}
+var game = new Game(scenarios);
+game.start();
 
 
-loadScene('start_scenario');
-
-$('.app').on('click', 'button', event => {
-	var newScene = $(event.target).data('next');
-	loadScene(newScene);
-
-});
 
 
 
